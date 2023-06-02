@@ -48,15 +48,15 @@ if (isset($_POST['email']) && isset($_POST['password'])
 		// hashing the password
         $pass = md5($pass);
 
-	    $sql = "SELECT * FROM users WHERE email='$email' ";
-		$result = mysqli_query($conn, $sql);
+		$sql = "SELECT * FROM admin WHERE email='$email'";
+		$result = $conn->query($sql); 
 
-		if (mysqli_num_rows($result) > 0) {
+		if ($result->rowCount() > 0) {
 			header("Location: signup.php?error=The email is taken try another&$user_data");
 	        exit();
 		}else {
-           $sql2 = "INSERT INTO users(email, password, full_name) VALUES('$email', '$pass', '$full_name')";
-           $result2 = mysqli_query($conn, $sql2);
+           $sql2 = "INSERT INTO admin(email, password, full_name) VALUES('$email', '$pass', '$full_name')";
+           $result2 = $conn->query($sql2);
            if ($result2) {
            	 header("Location: signup.php?success=Your account has been created successfully");
 	         exit();
