@@ -18,10 +18,12 @@ label {
 body{
 	background-color: #EAFDFC;
 }
-#nav{
+nav{
 	background: #4070f4;
 }
-
+.blue{
+	background-color: #73BBC9;
+}
 *{
   margin: 0;
   padding: 0;

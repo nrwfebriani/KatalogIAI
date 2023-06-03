@@ -7,11 +7,12 @@
 
     <!-- bootstrap 5 Js bundle CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
      <div class="d-flex justify-content-center align-items-center"
           style="min-height: 100vh;">
-          <form class="p-5 rounded shadow"
+          <form class="p-5 rounded shadow blue"
                style="max-width: 30rem; width: 100%"
                method="POST"
                action="signup-check.php">
