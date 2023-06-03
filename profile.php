@@ -50,7 +50,6 @@
 		</nav>
         <section class="Profile">
         <div class="profile">
-        <!--<img src="girl.png" class="pic">-->
         <div class="text">
             <h2>Profile</h2>
             <h5>Your<span> Name</span></h5>

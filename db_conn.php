@@ -8,7 +8,7 @@ $uName = "root";
 $pass = "";
 
 # database name
-$db_name = "book2";
+$db_name = "book3";
 
 /**
 creating database connection 

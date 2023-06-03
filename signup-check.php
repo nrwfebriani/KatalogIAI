@@ -2,8 +2,7 @@
 session_start(); 
 include "db_conn.php";
 
-if (isset($_POST['email']) && isset($_POST['password'])
-    && isset($_POST['full_name']) && isset($_POST['re_password'])) {
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_password'])) {
 
 	function validate($data){
        $data = trim($data);
@@ -12,17 +11,16 @@ if (isset($_POST['email']) && isset($_POST['password'])
 	   return $data;
 	}
 
-	$email = validate($_POST['email']);
+	$username = validate($_POST['username']);
 	$pass = validate($_POST['password']);
 
 	$re_pass = validate($_POST['re_password']);
-	$full_name = validate($_POST['full_name']);
 
-	$user_data = 'email='. $email. 'full_name='. $full_name;
+	$user_data = 'username='. $username;
 
 
-	if (empty($email)) {
-		header("Location: signup.php?error=Email is required&");
+	if (empty($username)) {
+		header("Location: signup.php?error=Username is required&");
 	    exit();
 	}else if(empty($pass)){
         header("Location: signup.php?error=Password is required&");
@@ -33,11 +31,6 @@ if (isset($_POST['email']) && isset($_POST['password'])
 	    exit();
 	}
 
-	else if(empty($full_name)){
-        header("Location: signup.php?error=Name is required&");
-	    exit();
-	}
-
 	else if($pass !== $re_pass){
         header("Location: signup.php?error=The confirmation password  does not match&$user_data");
 	    exit();
@@ -45,14 +38,14 @@ if (isset($_POST['email']) && isset($_POST['password'])
 
 	else{
 
-		$sql = "SELECT * FROM admin WHERE email='$email'";
+		$sql = "SELECT * FROM pengguna WHERE username='$username'";
 		$result = $conn->query($sql); 
 
 		if ($result->rowCount() > 0) {
-			header("Location: signup.php?error=The email is taken try another&$user_data");
+			header("Location: signup.php?error=The username is taken try another&$user_data");
 	        exit();
 		}else {
-           $sql2 = "INSERT INTO admin(email, password, full_name) VALUES('$email', '$pass', '$full_name')";
+           $sql2 = "INSERT INTO pengguna(username, password) VALUES('$username', '$pass')";
            $result2 = $conn->query($sql2);
            if ($result2) {
            	 header("Location: signup.php?success=Your account has been created successfully");

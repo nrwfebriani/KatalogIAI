@@ -3,7 +3,7 @@ session_start();
 
 # If the admin is logged in
 if (isset($_SESSION['user_id']) &&
-    isset($_SESSION['user_email'])) {
+    isset($_SESSION['user_name'])) {
 
 	# Database Connection File
 	include "db_conn.php";
@@ -61,7 +61,7 @@ if (isset($_SESSION['user_id']) &&
 		        <li class="nav-item">
 		          <a class="nav-link" 
 		             aria-current="page" 
-		             href="index.php">Store</a>
+		             href="index.php">Home</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link active" 

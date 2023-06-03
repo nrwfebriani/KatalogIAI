@@ -27,36 +27,19 @@
 
                <div class="mb-3">
 
-                    <?php if (isset($_GET['email'])) { ?>
-                    <input type="email"
+                    <?php if (isset($_GET['username'])) { ?>
+                    <input type="text"
                               class="form-control"
-                              name="email" 
-                              id="exampleInputEmail1" 
-                              aria-describedby="emailHelp"
-                              value="<?php echo $_GET['email']; ?>"><br>
+                              name="username" 
+                              id="exampleInputUsername1" 
+                              value="<?php echo $_GET['username']; ?>"><br>
                <?php }else{ ?>
-                    <input type="email" 
+                    <input type="text" 
                               class="form-control"
-                              name="email" 
-                              id="exampleInputEmail1" 
-                              aria-describedby="emailHelp"
-                         placeholder="Email"><br>
+                              name="username" 
+                              id="exampleInputUsername1" 
+                         placeholder="Username"><br>
                <?php }?>
-
-                    <?php if (isset($_GET['full_name'])) { ?>
-                         <input type="text" 
-                              name="full_name"
-                              class="form-control"
-                              id="exampleInputName1" 
-                              <!-- placeholder="Name" -->
-                              value="<?php echo $_GET['full_name']; ?>"><br>
-                    <?php }else{ ?>
-                         <input type="text" 
-                              name="full_name" 
-                              placeholder="Name"
-                              class="form-control"
-                              id="exampleInputName1"><br>
-                    <?php }?>
 
                     <input type="password" 
                               class="form-control" 

@@ -3,7 +3,7 @@ session_start();
 
 # If the admin is logged in
 if (!isset($_SESSION['user_id']) &&
-    !isset($_SESSION['user_email'])) {
+    !isset($_SESSION['user_name'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,12 +36,11 @@ if (!isset($_SESSION['user_id']) &&
 		  <?php } ?>
 
 		  <div class="mb-3">
-		    <input type="email" 
+		    <input type="text" 
 		           class="form-control" 
-		           name="email" 
-		           id="exampleInputEmail1" 
-		           aria-describedby="emailHelp"
-				   placeholder="Email"><br>
+		           name="username" 
+		           id="exampleInputUsername1" 
+				   placeholder="Username"><br>
 
 		    <input type="password" 
 		           class="form-control" 

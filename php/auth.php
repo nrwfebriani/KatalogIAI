@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-if (isset($_POST['email']) && 
+if (isset($_POST['username']) && 
 	isset($_POST['password'])) {
     
     # Database Connection File
@@ -15,52 +15,52 @@ if (isset($_POST['email']) &&
 	   and store them in var
 	**/
 
-	$email = $_POST['email'];
+	$username = $_POST['username'];
 	$password = $_POST['password'];
 
 	# simple form validation
 
-	$text = "Email";
+	$text = "Username";
 	$location = "../login.php";
 	$ms = "error";
-    is_empty($email, $text, $location, $ms, "");
+    is_empty($username, $text, $location, $ms, "");
 
     $text = "Password";
 	$location = "../login.php";
 	$ms = "error";
     is_empty($password, $text, $location, $ms, "");
 
-    # search for the email
-    $sql = "SELECT * FROM admin 
-            WHERE email=?";
+    # search for the username
+    $sql = "SELECT * FROM pengguna 
+            WHERE username=?";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$email]);
+    $stmt->execute([$username]);
 
-    # if the email is exist
+    # if the username is exist
     if ($stmt->rowCount() === 1) {
     	$user = $stmt->fetch();
 
     	$user_id = $user['id'];
-    	$user_email = $user['email'];
+    	$user_name = $user['username'];
     	$user_password = $user['password'];
-    	if ($email === $user_email) {
+    	if ($username === $user_name) {
     		if ($password===$user_password) {
     			$_SESSION['user_id'] = $user_id;
-    			$_SESSION['user_email'] = $user_email;
+    			$_SESSION['user_name'] = $user_name;
     			header("Location: ../index.php");
     		}else {
     			# Error message
-    	        $em = "Incorrect User name or password";
+    	        $em = "Incorrect username or password";
     	        header("Location: ../login.php?error=$em");
     		}
     	}else {
     		# Error message
-    	    $em = "Incorrect User name or password";
+    	    $em = "Incorrect username or password";
     	    header("Location: ../login.php?error=$em");
     	}
     }else{
     	# Error message
-    	$em = "Incorrect User name or password";
+    	$em = "Incorrect username or password";
     	header("Location: ../login.php?error=$em");
     }
 
