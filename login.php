@@ -57,7 +57,7 @@ if (!isset($_SESSION['user_id']) &&
 		          class="btn btn-primary">
 		          Login</button>
 		   <a href="index.php">Home</a>
-		   <a href="signup.php" class="ca">Create an account</a>
+		   <a href="signup.php" class="ca"> Create an account</a>
 		</form>
 	</div>
 </body>

@@ -36,7 +36,7 @@ $categories = get_all_categories($conn);
 <body>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <div class="container-fluid">
+		  <div class="container-fluid blue rounded">
 		    <a class="navbar-brand" href="index.php">BluBook</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
@@ -133,7 +133,7 @@ $categories = get_all_categories($conn);
 							<br></b></i>
 						</p>
                        <a href="uploads/files/<?=$book['file']?>"
-                        class="btn btn-success">Open</a>
+                        class="btn btn-success padding 0.5rem">Open</a>
 
                         <a href="uploads/files/<?=$book['file']?>"
                         class="btn btn-primary"
