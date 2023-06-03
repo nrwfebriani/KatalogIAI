@@ -47,7 +47,7 @@ $categories = get_all_categories($conn);
 		        <li class="nav-item">
 		          <a class="nav-link active" 
 		             aria-current="page" 
-		             href="index.php">Store</a>
+		             href="index.php">Home</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link active"
