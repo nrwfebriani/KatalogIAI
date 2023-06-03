@@ -18,11 +18,13 @@ if (!isset($_SESSION['user_id']) &&
     <!-- bootstrap 5 Js bundle CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
+	<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 	<div class="d-flex justify-content-center align-items-center"
 	     style="min-height: 100vh;">
-		<form class="p-5 rounded shadow"
+		<form class="p-5 rounded shadow blue"
 		      style="max-width: 30rem; width: 100%"
 		      method="POST"
 		      action="php/auth.php">
@@ -34,19 +36,13 @@ if (!isset($_SESSION['user_id']) &&
 		  <?php } ?>
 
 		  <div class="mb-3">
-		    <!-- <label for="exampleInputEmail1" 
-		           class="form-label">Email address</label> -->
 		    <input type="email" 
 		           class="form-control" 
 		           name="email" 
 		           id="exampleInputEmail1" 
 		           aria-describedby="emailHelp"
-				   placeholder="Email">
-		  </div>
+				   placeholder="Email"><br>
 
-		  <div class="mb-3">
-		    <!-- <label for="exampleInputPassword1" 
-		           class="form-label">Password</label> -->
 		    <input type="password" 
 		           class="form-control" 
 		           name="password" 
@@ -56,8 +52,9 @@ if (!isset($_SESSION['user_id']) &&
 		  <button type="submit" 
 		          class="btn btn-primary">
 		          Login</button>
-		   <a href="index.php">Home</a>
-		   <a href="signup.php" class="ca"> Create an account</a>
+		
+		   <a class="btn btn-secondary" href="index.php" role="button">Home</a>
+		   <a class="btn btn-outline-primary" href="signup.php" role="button"> Create an account</a>
 		</form>
 	</div>
 </body>
