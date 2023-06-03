@@ -18,8 +18,8 @@ label {
 body{
 	background-color: #EAFDFC;
 }
-.navbar{
-	background-color: #82AAE3;
+#nav{
+	background: #4070f4;
 }
 
 *{
@@ -32,7 +32,7 @@ body{
   height: 100vh;
   width: 100%;
   padding: 90px 0;
-  background: #ddd;
+  background: #EAFDFC;
 }
 .about{
 	width: 1130px;
@@ -65,4 +65,7 @@ span{
 }
 .data{
 	margin-top: 30px;
+}
+.btn-fav{
+	background-color: #F45050;
 }

@@ -133,11 +133,14 @@ $categories = get_all_categories($conn);
 							<br></b></i>
 						</p>
                        <a href="uploads/files/<?=$book['file']?>"
-                          class="btn btn-success">Open</a>
+                        class="btn btn-success">Open</a>
 
                         <a href="uploads/files/<?=$book['file']?>"
-                          class="btn btn-primary"
-                          download="<?=$book['title']?>">Download</a>
+                        class="btn btn-primary"
+                        download="<?=$book['title']?>">Download</a>
+						<a href="uploads/files/<?=$book['file']?>"
+                        class="btn btn-fav"
+                        favorites="<?=$book['title']?>">Favorites</a>
 					</div>
 				</div>
 				<?php } ?>
