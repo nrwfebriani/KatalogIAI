@@ -63,10 +63,10 @@ $stocks = get_availability($conn);
 		        <li class="nav-item">
                         <?php if (isset($_SESSION['user_id'])) {?>
                             <a class="nav-link" 
-                            href="logout.php">Logout</a>
+			                 href="logout.php">Logout</a>
                         <?php }else{ ?>
-                        <a class="nav-link" 
-                            href="login.php">Login</a>
+                        <a class="nav-link"
+		                 href="login.php">Login</a>
                         <?php } ?>
 		            </li>
 		      </ul>
