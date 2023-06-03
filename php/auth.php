@@ -5,7 +5,7 @@ if (isset($_POST['username']) &&
 	isset($_POST['password'])) {
     
     # Database Connection File
-	include "../db_conn.php";
+	include "../db_conn2.php";
     
     # Validation helper function
 	include "func-validation.php";
