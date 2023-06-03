@@ -25,8 +25,8 @@
                <?php } ?>
 
                <div class="mb-3">
-                    <label for="exampleInputEmail1"
-                         class="form-label">Email address</label>
+                    <!-- <label for="exampleInputEmail1"
+                         class="form-label">Email address</label> -->
                     <?php if (isset($_GET['email'])) { ?>
                     <input type="email"
                               class="form-control"
@@ -42,44 +42,43 @@
                               aria-describedby="emailHelp"
                          placeholder="Email"><br>
                <?php }?>
-               </div>
+               <!-- </div>
 
-               <div class="mb-3">
-                    <label for="exampleInputName1"
-                         class="form-label">Full Name</label>
+               <div class="mb-3"> -->
+                    <!-- <label for="exampleInputName1"
+                         class="form-label">Full Name</label> -->
                     <?php if (isset($_GET['full_name'])) { ?>
                          <input type="text" 
                               name="full_name"
                               class="form-control"
                               id="exampleInputName1" 
-                              placeholder="Full Name"
+                              <!-- placeholder="Name" -->
                               value="<?php echo $_GET['full_name']; ?>"><br>
                     <?php }else{ ?>
                          <input type="text" 
                               name="full_name" 
-                              placeholder="Full Name"
+                              placeholder="Name"
                               class="form-control"
-                              id="exampleInputName1" 
-                              placeholder="Full Name"><br>
+                              id="exampleInputName1"><br>
                     <?php }?>
-               </div>
+               <!-- </div>
 
-               <div class="mb-3">
-                    <label for="exampleInputPassword1" 
-                              class="form-label">Password</label>
+               <div class="mb-3"> -->
+                    <!-- <label for="exampleInputPassword1" 
+                              class="form-label">Create password</label> -->
                     <input type="password" 
                               class="form-control" 
                               name="password" 
                               id="exampleInputPassword1" 
-                              placeholder="Password"><br>
-               </div>
-               <div class="mb-3">
-                    <label for="exampleInputPassword2" 
-                         class="form-label">Re Password</label>
+                              placeholder="Create password"><br>
+               <!-- </div>
+               <div class="mb-3"> -->
+                    <!-- <label for="exampleInputPassword2" 
+                         class="form-label">Confirm password</label> -->
                     <input type="password" 
                          class="form-control" 
                          name="re_password" 
-                         placeholder="Re_Password"
+                         placeholder="Confirm password"
                          id="exampleInputPassword2"><br>
                </div>
 

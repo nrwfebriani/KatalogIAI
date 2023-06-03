@@ -34,22 +34,24 @@ if (!isset($_SESSION['user_id']) &&
 		  <?php } ?>
 
 		  <div class="mb-3">
-		    <label for="exampleInputEmail1" 
-		           class="form-label">Email address</label>
+		    <!-- <label for="exampleInputEmail1" 
+		           class="form-label">Email address</label> -->
 		    <input type="email" 
 		           class="form-control" 
 		           name="email" 
 		           id="exampleInputEmail1" 
-		           aria-describedby="emailHelp">
+		           aria-describedby="emailHelp"
+				   placeholder="Email">
 		  </div>
 
 		  <div class="mb-3">
-		    <label for="exampleInputPassword1" 
-		           class="form-label">Password</label>
+		    <!-- <label for="exampleInputPassword1" 
+		           class="form-label">Password</label> -->
 		    <input type="password" 
 		           class="form-control" 
 		           name="password" 
-		           id="exampleInputPassword1">
+		           id="exampleInputPassword1"
+				   placeholder="Password">
 		  </div>
 		  <button type="submit" 
 		          class="btn btn-primary">
@@ -62,6 +64,6 @@ if (!isset($_SESSION['user_id']) &&
 </html>
 
 <?php }else{
-  header("Location: admin.php");
+  header("Location: index.php");
   exit;
 } ?>
