@@ -43,8 +43,8 @@ $categories = get_all_categories($conn);
 <body>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <div class="container-fluid">
-		    <a class="navbar-brand" href="index.php">Online Book Store</a>
+		  <div class="container-fluid blue rounded">
+		    <a class="navbar-brand" href="index.php">BluBook</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
@@ -54,20 +54,16 @@ $categories = get_all_categories($conn);
 		        <li class="nav-item">
 		          <a class="nav-link active" 
 		             aria-current="page" 
-		             href="index.php">Store</a>
+		             href="index.php">Home</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
-		             href="#">Contact</a>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" 
-		             href="#">About</a>
+		             href="about.php">About</a>
 		        </li>
 		        <li class="nav-item">
 		          <?php if (isset($_SESSION['user_id'])) {?>
 		          	<a class="nav-link" 
-		             href="admin.php">Admin</a>
+		             href="logout.php">Logout</a>
 		          <?php }else{ ?>
 		          <a class="nav-link" 
 		             href="login.php">Login</a>
@@ -122,14 +118,12 @@ $categories = get_all_categories($conn);
 								?>
 
 								<?php } ?>
-							<br></b></i>
-						</p>
-                       <a href="uploads/files/<?=$book['file']?>"
-                          class="btn btn-success">Open</a>
-
-                        <a href="uploads/files/<?=$book['file']?>"
-                          class="btn btn-primary"
-                          download="<?=$book['title']?>">Download</a>
+								<br></b></i>
+							<h6>Availability:</h6>	
+							<?php if ($book['stock'] == 0){?>
+							<span class="badge badge-primary btn-fav">Unavailable</span> 
+							<?php }else{ ?> <span class="badge badge-primary blue">Available</span>
+								<?php } ?>
 					</div>
 				</div>
 				<?php } ?>

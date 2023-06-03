@@ -52,9 +52,10 @@ if (!isset($_SESSION['user_id']) &&
 		  <button type="submit" 
 		          class="btn btn-primary">
 		          Login</button>
-		
-		   <a class="btn btn-secondary" href="index.php" role="button">Home</a>
-		   <a class="btn btn-outline-primary" href="signup.php" role="button"> Create an account</a>
+
+			<a class="btn btn-secondary" href="signup.php" role="button"> Create an account</a>
+		   <a class="btn btn-outline-primary" href="index.php" role="button">Home</a>
+		   
 		</form>
 	</div>
 </body>
