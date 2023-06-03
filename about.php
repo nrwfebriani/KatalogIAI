@@ -35,6 +35,16 @@
                         aria-current="page"
                         href="about.php">About</a>
                     </li>
+                    <li class="nav-item">
+		          <?php if (isset($_SESSION['user_id'])) {?>
+		          	<a class="nav-link" 
+		             href="profile.php">Profile</a>
+		          <?php }else{ ?>
+		          <a class="nav-link" 
+		             href="login.php">Login</a>
+		          <?php } ?>
+
+		        </li>
                 </ul>
 		    </div>
 		  </div>
