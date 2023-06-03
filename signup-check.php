@@ -45,9 +45,6 @@ if (isset($_POST['email']) && isset($_POST['password'])
 
 	else{
 
-		// hashing the password
-        $pass = md5($pass);
-
 		$sql = "SELECT * FROM admin WHERE email='$email'";
 		$result = $conn->query($sql); 
 

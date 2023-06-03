@@ -44,7 +44,7 @@ if (isset($_POST['email']) &&
     	$user_email = $user['email'];
     	$user_password = $user['password'];
     	if ($email === $user_email) {
-    		if (password_verify($password, $user_password)) {
+    		if ($password===$user_password) {
     			$_SESSION['user_id'] = $user_id;
     			$_SESSION['user_email'] = $user_email;
     			header("Location: ../admin.php");
