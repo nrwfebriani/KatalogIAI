@@ -47,7 +47,7 @@ if (isset($_POST['email']) &&
     		if ($password===$user_password) {
     			$_SESSION['user_id'] = $user_id;
     			$_SESSION['user_email'] = $user_email;
-    			header("Location: ../admin.php");
+    			header("Location: ../index.php");
     		}else {
     			# Error message
     	        $em = "Incorrect User name or password";
