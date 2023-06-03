@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-include "db_conn.php";
+include "db_conn2.php";
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_password'])) {
 
@@ -39,14 +39,14 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_p
 	else{
 
 		$sql = "SELECT * FROM pengguna WHERE username='$username'";
-		$result = $conn->query($sql); 
+		$result =mysqli_query($conn, $sql); 
 
-		if ($result->rowCount() > 0) {
+		if ($result->num_rows > 0) {
 			header("Location: signup.php?error=The username is taken try another&$user_data");
 	        exit();
 		}else {
            $sql2 = "INSERT INTO pengguna(username, password) VALUES('$username', '$pass')";
-           $result2 = $conn->query($sql2);
+           $result2 = mysqli_query($conn, $sql2); 
            if ($result2) {
            	 header("Location: signup.php?success=Your account has been created successfully");
 	         exit();

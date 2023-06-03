@@ -32,14 +32,12 @@ if (isset($_POST['username']) &&
 
     # search for the username
     $sql = "SELECT * FROM pengguna 
-            WHERE username=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$username]);
+            WHERE username='$username'";
+    $stmt = mysqli_query($conn, $sql);
 
     # if the username is exist
-    if ($stmt->rowCount() === 1) {
-    	$user = $stmt->fetch();
-
+	if ($stmt->num_rows === 1) {
+		$user = $stmt->	fetch_array();
     	$user_id = $user['id_user'];
     	$user_name = $user['username'];
     	$user_password = $user['password'];
