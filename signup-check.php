@@ -22,19 +22,19 @@ if (isset($_POST['email']) && isset($_POST['password'])
 
 
 	if (empty($email)) {
-		header("Location: signup.php?error=Email is required&$user_data");
+		header("Location: signup.php?error=Email is required&");
 	    exit();
 	}else if(empty($pass)){
-        header("Location: signup.php?error=Password is required&$user_data");
+        header("Location: signup.php?error=Password is required&");
 	    exit();
 	}
 	else if(empty($re_pass)){
-        header("Location: signup.php?error=Re Password is required&$user_data");
+        header("Location: signup.php?error=Password confirmation is required&");
 	    exit();
 	}
 
 	else if(empty($full_name)){
-        header("Location: signup.php?error=Full Name is required&$user_data");
+        header("Location: signup.php?error=Name is required&");
 	    exit();
 	}
 
