@@ -16,6 +16,9 @@ $authors = get_all_author($conn);
 include "php/func-category.php";
 $categories = get_all_categories($conn);
 
+include "php/func-publisher.php";
+$publisher = get_all_publishers($conn);
+
 include "php/func-availability.php";
 $stocks = get_availability($conn);
 
@@ -58,15 +61,14 @@ $stocks = get_availability($conn);
 		             href="about.php">About</a>
 		        </li>
 		        <li class="nav-item">
-		          <?php if (isset($_SESSION['user_id'])) {?>
-		          	<a class="nav-link" 
-		             href="logout.php">Logout</a>
-		          <?php }else{ ?>
-		          <a class="nav-link" 
-		             href="login.php">Login</a>
-		          <?php } ?>
-
-		        </li>
+                        <?php if (isset($_SESSION['user_id'])) {?>
+                            <a class="nav-link" 
+                            href="logout.php">Logout</a>
+                        <?php }else{ ?>
+                        <a class="nav-link" 
+                            href="login.php">Login</a>
+                        <?php } ?>
+		            </li>
 		      </ul>
 		    </div>
 		  </div>
@@ -132,6 +134,16 @@ $stocks = get_availability($conn);
 									}
 								?>
 								
+								<?php } ?>
+							<br></b></i>
+							<br><i><b>Publisher:
+								<?php foreach($publisher as $publishers){ 
+									if ($publishers['id_penerbit'] == $book['publisher_id']) {
+										echo $publishers['nama_penerbit'];
+										break;
+									}
+								?>
+
 								<?php } ?>
 							<br></b></i>
 							<h6>Availability:</h6>	

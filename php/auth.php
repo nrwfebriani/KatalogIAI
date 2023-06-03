@@ -40,7 +40,7 @@ if (isset($_POST['username']) &&
     if ($stmt->rowCount() === 1) {
     	$user = $stmt->fetch();
 
-    	$user_id = $user['id'];
+    	$user_id = $user['id_user'];
     	$user_name = $user['username'];
     	$user_password = $user['password'];
     	if ($username === $user_name) {

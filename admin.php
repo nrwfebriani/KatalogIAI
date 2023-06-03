@@ -20,6 +20,9 @@ if (isset($_SESSION['user_id']) &&
 	include "php/func-category.php";
     $categories = get_all_categories($conn);
 
+	include "php/func-publisher.php";
+	$publisher = get_all_publishers($conn);
+
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +66,10 @@ if (isset($_SESSION['user_id']) &&
 		        <li class="nav-item">
 		          <a class="nav-link" 
 		             href="add-author.php">Add Author</a>
+		        </li>
+				<li class="nav-item">
+		          <a class="nav-link" 
+		             href="add-publisher.php">Add Publisher</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
@@ -128,6 +135,7 @@ if (isset($_SESSION['user_id']) &&
 					<th>Author</th>
 					<th>Description</th>
 					<th>Category</th>
+					<th>Publisher</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -170,6 +178,18 @@ if (isset($_SESSION['user_id']) &&
 					    foreach ($categories as $category) {
 					    	if ($category['id'] == $book['category_id']) {
 					    		echo $category['name'];
+					    	}
+					    }
+					}
+					?>
+				</td>
+				<td>
+					<?php if ($publisher == 0) {
+						echo "Undefined";}else{ 
+
+					    foreach ($publisher as $publishers) {
+					    	if ($publishers['id_penerbit'] == $book['publisher_id']) {
+					    		echo $publishers['nama_penerbit'];
 					    	}
 					    }
 					}
