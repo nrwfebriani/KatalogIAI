@@ -15,6 +15,12 @@ label {
 	font-family: Poppins;
 
 }
+body{
+	background-color: #EAFDFC;
+}
+.navbar{
+	background-color: #82AAE3;
+}
 
 *{
   margin: 0;
