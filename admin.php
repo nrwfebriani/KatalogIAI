@@ -39,7 +39,7 @@ if (isset($_SESSION['user_id']) &&
 <body>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <div class="container-fluid blue">
+		  <div class="container-fluid blue rounded shadow">
 		    <a class="navbar-brand" href="admin.php">Admin</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>

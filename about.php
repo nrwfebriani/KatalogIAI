@@ -21,7 +21,7 @@ session_start();
 <body>
     <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container blue rounded">
+            <div class="container blue rounded shadow">
                 <a class="navbar-brand" href="index.php">BluBook</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -54,14 +54,10 @@ session_start();
 	</nav>
     <section class="about-us">
         <div class="about">
-        <!--<img src="girl.png" class="pic">-->
         <div class="text">
             <h2>About Us</h2>
-            <h5>BluBook<span> Your e-Library</span></h5>
+            <h5>BluBook<span> Your e-Library Catalogue</span></h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita natus ad sed harum itaque ullam enim quas, veniam accusantium, quia animi id eos adipisci iusto molestias asperiores explicabo cum vero atque amet corporis! Soluta illum facere consequuntur magni. Ullam dolorem repudiandae cumque voluptate consequatur consectetur, eos provident necessitatibus reiciendis corrupti!</p>
-            <div class="data">
-            <a href="#" class="hire">Visit us soon!</a>
-            </div>
         </div>
         </div>
     </section>
