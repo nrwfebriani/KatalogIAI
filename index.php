@@ -37,7 +37,7 @@ $categories = get_all_categories($conn);
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		  <div class="container-fluid">
-		    <a class="navbar-brand" href="index.php">Online Book Store</a>
+		    <a class="navbar-brand" href="index.php">BluBook</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
@@ -50,12 +50,9 @@ $categories = get_all_categories($conn);
 		             href="index.php">Store</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" 
-		             href="#">Contact</a>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" 
-		             href="#">About</a>
+		          <a class="nav-link active"
+				  	aria-current="page"
+		             href="about.php">About</a>
 		        </li>
 		        <!-- <li class="nav-item">
 		          <?php if (isset($_SESSION['user_id'])) {?>
