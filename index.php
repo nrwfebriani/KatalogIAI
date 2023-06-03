@@ -57,7 +57,7 @@ $categories = get_all_categories($conn);
 		        <li class="nav-item">
 		          <?php if (isset($_SESSION['user_id'])) {?>
 		          	<a class="nav-link" 
-		             href="profile.php">Profile</a>
+		             href="logout.php">Logout</a>
 		          <?php }else{ ?>
 		          <a class="nav-link" 
 		             href="login.php">Login</a>
