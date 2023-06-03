@@ -17,7 +17,7 @@ include "php/func-category.php";
 $categories = get_all_categories($conn);
 
 include "php/func-availability.php";
-$stock = get_availability($conn);
+$stocks = get_availability($conn);
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ $stock = get_availability($conn);
 
 </head>
 <body>
-	<div class="container">
+	<div class="container flex">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		  <div class="container-fluid blue rounded">
 		    <a class="navbar-brand" href="index.php">BluBook</a>
@@ -134,17 +134,16 @@ $stock = get_availability($conn);
 								
 								<?php } ?>
 							<br></b></i>
-							<h6>Availability
-							<?php if ($stock == 0){?>
-							<span class="badge badge-secondary">Unavailable</span> <?php
-							}else{ ?> <span class="badge badge-primary">Available</span> php?></h6>														
+							<h6>Availability:</h6>	
+							<?php if ($book['stock'] == 0){?>
+							<span class="badge badge-primary btn-fav">Unavailable</span> 
+							<?php }else{ ?> <span class="badge badge-primary blue">Available</span>
+								<?php } ?>
 						</p>												
 					</div>
 				</div>
 				<?php } ?>
 			</div>
-		<?php } ?>
-
 		<div class="category">
 			<!-- List of categories -->
 			<div class="list-group">
