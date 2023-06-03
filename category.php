@@ -131,14 +131,13 @@ $current_category = get_category($conn, $id);
 							
 								<?php } ?>
 							<br></b></i>
-							<h6>Availability:<span class="badge badge-secondary blue">Unavailable</span></h6>
+							<h6>Availability:</h6>	
+							<?php if ($book['stock'] == 0){?>
+							<span class="badge badge-primary btn-fav">Unavailable</span> 
+							<?php }else{ ?> <span class="badge badge-primary blue">Available</span>
+								<?php } ?>
 						</p>						
-                    	<a href="uploads/files/<?=$book['file']?>"
-                        class="btn btn-success">Open</a>
-
-                        <a href="uploads/files/<?=$book['file']?>"
-							class="btn btn-primary"
-							download="<?=$book['title']?>">Download</a>
+                    	
 					</div>
 				</div>
 				<?php } ?>
