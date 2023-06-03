@@ -16,7 +16,10 @@ $authors = get_all_author($conn);
 include "php/func-category.php";
 $categories = get_all_categories($conn);
 
- ?>
+include "php/func-availability.php";
+$stock = get_availability($conn);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,7 +102,7 @@ $categories = get_all_categories($conn);
         	     <br>
 			    There is no book in the database
 		       </div>
-			<?php }else{ ?>
+			<?php }else ?>
 			<div class="pdf-list d-flex flex-wrap">
 				<?php foreach ($books as $book) { ?>
 				<div class="card m-1">
@@ -128,19 +131,14 @@ $categories = get_all_categories($conn);
 										break;
 									}
 								?>
-
+								
 								<?php } ?>
 							<br></b></i>
-						</p>
-                       <a href="uploads/files/<?=$book['file']?>"
-                        class="btn btn-success padding 0.5rem">Open</a>
-
-                        <a href="uploads/files/<?=$book['file']?>"
-                        class="btn btn-primary"
-                        download="<?=$book['title']?>">Download</a>
-						<a href="uploads/files/<?=$book['file']?>"
-                        class="btn btn-fav"
-                        favorites="<?=$book['title']?>">Favorites</a>
+							<h6>Availability
+							<?php if ($stock == 0){?>
+							<span class="badge badge-secondary">Unavailable</span> <?php
+							}else{ ?> <span class="badge badge-primary">Available</span> php?></h6>														
+						</p>												
 					</div>
 				</div>
 				<?php } ?>
@@ -154,12 +152,12 @@ $categories = get_all_categories($conn);
 					// do nothing
 				}else{ ?>
 				<a href="#"
-				   class="list-group-item list-group-item-action active">Category</a>
-				   <?php foreach ($categories as $category ) {?>
-				  
-				   <a href="category.php?id=<?=$category['id']?>"
-				      class="list-group-item list-group-item-action">
-				      <?=$category['name']?></a>
+					class="list-group-item list-group-item-action active">Category</a>
+				<?php foreach ($categories as $category ) {?>
+				
+				<a href="category.php?id=<?=$category['id']?>"
+				    class="list-group-item list-group-item-action">
+				    <?=$category['name']?></a>
 				<?php } } ?>
 			</div>
 
@@ -169,12 +167,12 @@ $categories = get_all_categories($conn);
 					// do nothing
 				}else{ ?>
 				<a href="#"
-				   class="list-group-item list-group-item-action active">Author</a>
-				   <?php foreach ($authors as $author ) {?>
-				  
-				   <a href="author.php?id=<?=$author['id']?>"
-				      class="list-group-item list-group-item-action">
-				      <?=$author['name']?></a>
+				class="list-group-item list-group-item-action active">Author</a>
+				<?php foreach ($authors as $author ) {?>
+				
+				<a href="author.php?id=<?=$author['id']?>"
+				    class="list-group-item list-group-item-action">
+				    <?=$author['name']?></a>
 				<?php } } ?>
 			</div>
 		</div>

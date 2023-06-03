@@ -128,16 +128,17 @@ $current_category = get_category($conn, $id);
 										break;
 									}
 								?>
-
+							
 								<?php } ?>
 							<br></b></i>
-						</p>
-                       <a href="uploads/files/<?=$book['file']?>"
-                          class="btn btn-success">Open</a>
+							<h6>Availability:<span class="badge badge-secondary blue">Unavailable</span></h6>
+						</p>						
+                    	<a href="uploads/files/<?=$book['file']?>"
+                        class="btn btn-success">Open</a>
 
                         <a href="uploads/files/<?=$book['file']?>"
-                          class="btn btn-primary"
-                          download="<?=$book['title']?>">Download</a>
+							class="btn btn-primary"
+							download="<?=$book['title']?>">Download</a>
 					</div>
 				</div>
 				<?php } ?>
