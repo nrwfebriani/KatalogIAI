@@ -294,6 +294,50 @@ if (isset($_SESSION['user_id']) &&
 					</td>
 				</tr>
 			    <?php } ?>
+				</tbody>
+		</table> 
+		<?php } ?>
+
+				<?php  if ($publisher == 0) { ?>
+        	<div class="alert alert-warning 
+        	            text-center p-5" 
+        	     role="alert">
+        	     <img src="img/empty.png" 
+        	          width="100">
+        	     <br>
+			  There is no publisher in the database
+		    </div>
+        <?php }else {?>
+	    <!-- List of all Authors -->
+		<h4 class="mt-5">All Publisher</h4>
+         <table class="table table-bordered shadow">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Publisher Name</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php 
+				$k = 0;
+				foreach ($publisher as $publishers ) {
+				$k++;	
+				?>
+				<tr>
+					<td><?=$k?></td>
+					<td><?=$publishers['nama_penerbit']?></td>
+					<td>
+						<a href="edit-publisher.php?id_penerbit=<?=$publishers['id_penerbit']?>" 
+						   class="btn btn-warning">
+						   Edit</a>
+
+						<a href="php/delete-publisher.php?id_penerbit=<?=$publishers['id_penerbit']?>" 
+						   class="btn btn-danger">
+					       Delete</a>
+					</td>
+				</tr>
+			    <?php } ?>
 			</tbody>
 		</table> 
 		<?php } ?>

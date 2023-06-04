@@ -12,9 +12,9 @@ if (isset($_SESSION['user_id']) &&
 	include "php/func-category.php";
     $categories = get_all_categories($conn);
 
-	 # Category helper function
-	 include "php/func-publisher.php";
-	 $categories = get_all_publishers($conn);
+	 # Publisher helper function
+	include "php/func-publisher.php";
+	$publisher = get_all_publishers($conn);
 
     # author helper function
 	include "php/func-author.php";
@@ -82,6 +82,10 @@ if (isset($_SESSION['user_id']) &&
 		        <li class="nav-item">
 		          <a class="nav-link" 
 		             href="add-author.php">Add Author</a>
+		        </li>
+				<li class="nav-item">
+		          <a class="nav-link" 
+		             href="add-publisher.php">Add Publisher</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
@@ -202,16 +206,16 @@ if (isset($_SESSION['user_id']) &&
                     	# Do nothing!
                     }else{
 		    	    foreach ($publisher as $publishers) { 
-		    	    	if ($publisher_id == $publisher['id_penerbit']) { ?>
+		    	    	if ($publisher_id == $publishers['id_penerbit']) { ?>
 		    	    	<option 
 		    	    	  selected
-		    	    	  value="<?=$publisher['id_penerbit']?>">
-		    	    	  <?=$publisher['nama_penerbit']?>
+		    	    	  value="<?=$publishers['id_penerbit']?>">
+		    	    	  <?=$publishers['nama_penerbit']?>
 		    	        </option>
 		    	        <?php }else{ ?>
 						<option 
-							value="<?=$publisher['id_penerbit']?>">
-							<?=$publisher['nama_penerbit']?>
+							value="<?=$publishers['id_penerbit']?>">
+							<?=$publishers['nama_penerbit']?>
 						</option>
 		    	   <?php }} } ?>
 		    </select>

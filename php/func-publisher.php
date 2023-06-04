@@ -17,10 +17,10 @@ function get_all_publishers($con){
 
 
 # Get category by ID
-function get_publisher($con, $id){
-   $sql  = "SELECT nama_penerbit FROM publisher WHERE id_penerbit=?";
+function get_publisher($con, $id_penerbit){
+   $sql  = "SELECT * FROM publisher WHERE id_penerbit=?";
    $stmt = $con->prepare($sql);
-   $stmt->execute([$id]);
+   $stmt->execute([$id_penerbit]);
 
    if ($stmt->rowCount() > 0) {
    	  $publishers = $stmt->fetch();

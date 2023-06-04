@@ -36,6 +36,11 @@ if (isset($_SESSION['user_id']) &&
 	include "php/func-author.php";
     $authors = get_all_author($conn);
 
+	include "php/func-publisher.php";
+	$publisher = get_all_publishers($conn);
+
+	
+
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +84,10 @@ if (isset($_SESSION['user_id']) &&
 		        <li class="nav-item">
 		          <a class="nav-link" 
 		             href="add-author.php">Add Author</a>
+		        </li>
+				<li class="nav-item">
+		          <a class="nav-link" 
+		             href="add-publisher.php">Add Publisher</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
@@ -185,6 +194,35 @@ if (isset($_SESSION['user_id']) &&
 						<option 
 							value="<?=$category['id']?>">
 							<?=$category['name']?>
+						</option>
+		    	   <?php }} } ?>
+		    </select>
+		</div>
+
+		<div class="mb-3">
+		    <label class="form-label">
+		           Book Publisher
+		           </label>
+		    <select name="book_publisher"
+		            class="form-control">
+		    	    <option value="0">
+		    	    	Select Publisher
+		    	    </option>
+		    	    <?php 
+                    if ($publisher == 0) {
+                    	# Do nothing!
+                    }else{
+		    	    foreach ($publisher as $publishers) { 
+		    	    	if ($book['publisher_id'] == $publishers['id_penerbit']) { ?>
+		    	    	<option 
+		    	    	  selected
+		    	    	  value="<?=$publishers['id_penerbit']?>">
+		    	    	  <?=$publishers['nama_penerbit']?>
+		    	        </option>
+		    	        <?php }else{ ?>
+						<option 
+							value="<?=$publishers['id_penerbit']?>">
+							<?=$publishers['nama_penerbit']?>
 						</option>
 		    	   <?php }} } ?>
 		    </select>

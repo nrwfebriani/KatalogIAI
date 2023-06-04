@@ -23,14 +23,14 @@ if (isset($_SESSION['user_id']) &&
 		$id_penerbit = $_POST['id_penerbit'];
 
 		#simple form Validation
-		if (empty($name)) {
-			$em = "The category name is required";
-			header("Location: ../edit-category.php?error=$em&id=$id");
+		if (empty($nama_penerbit)) {
+			$em = "The publisher name is required";
+			header("Location: ../edit-publisher.php?error=$em&id_penerbit=$id_penerbit");
             exit;
 		}else {
 			# UPDATE the Database
 			$sql  = "UPDATE publisher 
-			         SET name=?
+			         SET nama_penerbit=?
 			         WHERE id_penerbit=?";
 			$stmt = $conn->prepare($sql);
 			$res  = $stmt->execute([$nama_penerbit, $id_penerbit]);
@@ -42,12 +42,12 @@ if (isset($_SESSION['user_id']) &&
 		     if ($res) {
 		     	# success message
 		     	$sm = "Successfully updated!";
-				header("Location: ../edit-publisher.php?success=$sm&id=$id_penerbit");
+				header("Location: ../edit-publisher.php?success=$sm&id_penerbit=$id_penerbit");
 	            exit;
 		     }else{
 		     	# Error message
 		     	$em = "Unknown Error Occurred!";
-				header("Location: ../edit-publisher.php?error=$em&id=$id_penerbit");
+				header("Location: ../edit-publisher.php?error=$em&id_penerbit=$id_penerbit");
 	            exit;
 		     }
 		}

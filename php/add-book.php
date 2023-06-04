@@ -23,6 +23,7 @@ if (isset($_SESSION['user_id']) &&
         isset($_POST['book_description']) &&
         isset($_POST['book_author'])      &&
         isset($_POST['book_category'])    &&
+		isset($_POST['book_publisher'])	  &&
         isset($_FILES['book_cover'])      &&
         isset($_FILES['file'])) {
 		/** 
@@ -33,9 +34,10 @@ if (isset($_SESSION['user_id']) &&
 		$description = $_POST['book_description'];
 		$author      = $_POST['book_author'];
 		$category    = $_POST['book_category'];
+		$publishers   = $_POST['book_publisher'];
 
 		# making URL data format
-		$user_input = 'title='.$title.'&category_id='.$category.'&desc='.$description.'&author_id='.$author;
+		$user_input = 'title='.$title.'&category_id='.$category.'&desc='.$description.'&author_id='.$author'&publisher_id='.$publishers;
 
 		#simple form Validation
 
@@ -58,6 +60,11 @@ if (isset($_SESSION['user_id']) &&
         $location = "../add-book.php";
         $ms = "error";
 		is_empty($category, $text, $location, $ms, $user_input);
+
+		$text = "Book publisher";
+        $location = "../add-book.php";
+        $ms = "error";
+		is_empty($publishers, $text, $location, $ms, $user_input);
         
         # book cover Uploading
         $allowed_image_exs = array("jpg", "jpeg", "png");
@@ -109,11 +116,12 @@ if (isset($_SESSION['user_id']) &&
                                             author_id,
                                             description,
                                             category_id,
+											publisher_id,
                                             cover,
                                             file)
-                         VALUES (?,?,?,?,?,?)";
+                         VALUES (?,?,?,?,?,?,?)";
                 $stmt = $conn->prepare($sql);
-			    $res  = $stmt->execute([$title, $author, $description, $category, $book_cover_URL, $file_URL]);
+			    $res  = $stmt->execute([$title, $author, $description, $category, $publishers, $book_cover_URL, $file_URL]);
 
 			/**
 		      If there is no error while 
