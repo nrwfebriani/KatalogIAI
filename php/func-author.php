@@ -18,11 +18,11 @@ function get_all_author($conn){
 
 # Get  Author by ID function
 function get_author($conn, $id){
-   $sql  = "SELECT * FROM authors WHERE id=?";
+   $sql  = "SELECT * FROM authors WHERE id='$id'";
    $stmt = mysqli_query($conn, $sql);
 
    if ($stmt->num_rows > 0) {
-   	  $author = $stmt->fetch_all(MYSQLI_ASSOC);
+   	  $author = $stmt->fetch_array();
    }else {
       $author = 0;
    }

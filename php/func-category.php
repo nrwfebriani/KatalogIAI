@@ -17,12 +17,12 @@ function get_all_categories($conn){
 
 # Get category by ID
 function get_category($conn, $id){
-   $sql  = "SELECT * FROM categories WHERE id=?";
+   $sql  = "SELECT * FROM categories WHERE id='$id'";
    $stmt = mysqli_query($conn, $sql);
 
 
    if ($stmt->num_rows > 0) {
-   	  $category = $stmt->fetch_all(MYSQLI_ASSOC);
+   	  $category = $stmt->fetch_array();
    }else {
       $category = 0;
    }

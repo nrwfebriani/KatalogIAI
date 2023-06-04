@@ -17,7 +17,7 @@ function get_all_books($conn){
 
 # Get  book by ID function
 function get_book($conn, $id){
-   $sql  = "SELECT * FROM books WHERE id=?";
+   $sql  = "SELECT * FROM books WHERE id='$id'";
    $stmt = mysqli_query($conn, $sql);
 
    if ($stmt->num_rows > 0) {
@@ -52,7 +52,7 @@ function search_books($conn, $key){
 
 # get books by category
 function get_books_by_category($conn, $id){
-   $sql  = "SELECT * FROM books WHERE category_id=?";
+   $sql  = "SELECT * FROM books WHERE category_id='$id'";
    $stmt = mysqli_query($conn, $sql);
 
    if ($stmt->num_rows > 0) {
@@ -67,7 +67,7 @@ function get_books_by_category($conn, $id){
 
 # get books by author
 function get_books_by_author($conn, $id){
-   $sql  = "SELECT * FROM books WHERE author_id=?";
+   $sql  = "SELECT * FROM books WHERE author_id='$id'";
    $stmt = mysqli_query($conn, $sql);
 
    if ($stmt->num_rows > 0) {
