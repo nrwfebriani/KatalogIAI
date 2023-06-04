@@ -1,30 +1,27 @@
 <?php  
 
 # Get All books function
-function get_all_books($con){
+function get_all_books($conn){
    $sql  = "SELECT * FROM books ORDER bY id DESC";
-   $stmt = $con->prepare($sql);
-   $stmt->execute();
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-   	  $books = $stmt->fetchAll();
-   }else {
+   if ($stmt->num_rows > 0) {
+   	 $books = $stmt->fetch_all(MYSQLI_ASSOC);
+       echo '<script>console.log("books")</script>';   
+      }else {
       $books = 0;
    }
 
    return $books;
 }
 
-
-
 # Get  book by ID function
-function get_book($con, $id){
+function get_book($conn, $id){
    $sql  = "SELECT * FROM books WHERE id=?";
-   $stmt = $con->prepare($sql);
-   $stmt->execute([$id]);
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-   	  $book = $stmt->fetch();
+   if ($stmt->num_rows > 0) {
+   	  $book = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $book = 0;
    }
@@ -34,18 +31,18 @@ function get_book($con, $id){
 
 
 # Search books function
-function search_books($con, $key){
+function search_books($conn, $key){
    # creating simple search algorithm :) 
    $key = "%{$key}%";
 
    $sql  = "SELECT * FROM books 
             WHERE title LIKE ?
             OR description LIKE ?";
-   $stmt = $con->prepare($sql);
-   $stmt->execute([$key, $key]);
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-        $books = $stmt->fetchAll();
+
+   if ($stmt->num_rows > 0) {
+        $books = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $books = 0;
    }
@@ -54,13 +51,12 @@ function search_books($con, $key){
 }
 
 # get books by category
-function get_books_by_category($con, $id){
+function get_books_by_category($conn, $id){
    $sql  = "SELECT * FROM books WHERE category_id=?";
-   $stmt = $con->prepare($sql);
-   $stmt->execute([$id]);
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-        $books = $stmt->fetchAll();
+   if ($stmt->num_rows > 0) {
+        $books = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $books = 0;
    }
@@ -70,13 +66,12 @@ function get_books_by_category($con, $id){
 
 
 # get books by author
-function get_books_by_author($con, $id){
+function get_books_by_author($conn, $id){
    $sql  = "SELECT * FROM books WHERE author_id=?";
-   $stmt = $con->prepare($sql);
-   $stmt->execute([$id]);
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-        $books = $stmt->fetchAll();
+   if ($stmt->num_rows > 0) {
+        $books = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $books = 0;
    }

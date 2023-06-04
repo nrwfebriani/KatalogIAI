@@ -1,23 +1,18 @@
 <?php 
 
-# server name
-$sName = "localhost";
-# user name
-$uName = "root";
-# password
-$pass = "";
+$host = 'iai-epu.mysql.database.azure.com';
+$username = 'mendung';
+$password = 'TanpoUdan<3';
+$db_name = 'epus-db';
 
-# database name
-$db_name = "book_besty";
+//Initializes MySQLi
+$conn = mysqli_init();
 
-/**
-creating database connection 
-useing The PHP Data Objects (PDO)
-**/
-try {
-    $conn = new PDO("mysql:host=$sName;dbname=$db_name", 
-                    $uName, $pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}catch(PDOException $e){
-  echo "Connection failed : ". $e->getMessage();
+// Establish the connection
+mysqli_real_connect($conn, 'iai-epu.mysql.database.azure.com', 'mendung', 'TanpoUdan<3', 'epus-db', 3306, NULL, MYSQLI_CLIENT_SSL);
+
+//If connection failed, show the error
+if (mysqli_connect_errno())
+{
+    die('Failed to connect to MySQL: '.mysqli_connect_error());
 }

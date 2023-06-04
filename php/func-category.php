@@ -1,13 +1,12 @@
 <?php  
 
 # Get all Categories function
-function get_all_categories($con){
+function get_all_categories($conn){
    $sql  = "SELECT * FROM categories";
-   $stmt = $con->prepare($sql);
-   $stmt->execute();
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-   	  $categories = $stmt->fetchAll();
+   if ($stmt->num_rows > 0) {
+   	  $categories = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $categories = 0;
    }
@@ -17,13 +16,13 @@ function get_all_categories($con){
 
 
 # Get category by ID
-function get_category($con, $id){
+function get_category($conn, $id){
    $sql  = "SELECT * FROM categories WHERE id=?";
-   $stmt = $con->prepare($sql);
-   $stmt->execute([$id]);
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-   	  $category = $stmt->fetch();
+
+   if ($stmt->num_rows > 0) {
+   	  $category = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $category = 0;
    }

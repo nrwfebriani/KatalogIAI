@@ -1,13 +1,13 @@
 <?php 
 
 # Get all Author function
-function get_all_author($con){
+function get_all_author($conn){
    $sql  = "SELECT * FROM authors";
-   $stmt = $con->prepare($sql);
-   $stmt->execute();
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-   	  $authors = $stmt->fetchAll();
+
+   if ($stmt->num_rows > 0) {
+   	  $authors = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $authors = 0;
    }
@@ -17,13 +17,12 @@ function get_all_author($con){
 
 
 # Get  Author by ID function
-function get_author($con, $id){
+function get_author($conn, $id){
    $sql  = "SELECT * FROM authors WHERE id=?";
-   $stmt = $con->prepare($sql);
-   $stmt->execute([$id]);
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-   	  $author = $stmt->fetch();
+   if ($stmt->num_rows > 0) {
+   	  $author = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $author = 0;
    }

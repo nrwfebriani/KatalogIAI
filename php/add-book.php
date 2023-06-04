@@ -37,7 +37,7 @@ if (isset($_SESSION['user_id']) &&
 		$publishers   = $_POST['book_publisher'];
 
 		# making URL data format
-		$user_input = 'title='.$title.'&category_id='.$category.'&desc='.$description.'&author_id='.$author'&publisher_id='.$publishers;
+		$user_input = 'title='.$title.'&category_id='.$category.'&desc='.$description.'&author_id='.$author.'&publisher_id='.$publishers;
 
 		#simple form Validation
 

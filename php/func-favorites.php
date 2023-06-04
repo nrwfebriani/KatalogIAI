@@ -1,13 +1,13 @@
 <?php
 
 # function add to fav
-function add_fav($con){
+function add_fav($conn){
     $sql  = "SELECT * FROM books";
-    $stmt = $con->prepare($sql);
-    $stmt->execute();
+    $stmt = mysqli_query($conn, $sql);
+
  
-    if ($stmt->rowCount() > 0) {
-          $categories = $stmt->fetchAll();
+    if ($stmt->num_rows > 0) {
+          $categories = $stmt->fetch_all(MYSQLI_ASSOC);
     }else {
        $categories = 0;
     }
@@ -17,13 +17,12 @@ function add_fav($con){
  
  
  # Get category by ID
- function get_category($con, $id){
+ function get_category($conn, $id){
     $sql  = "SELECT * FROM books WHERE id=?";
-    $stmt = $con->prepare($sql);
-    $stmt->execute([$id]);
+    $stmt = mysqli_query($conn, $sql);
  
-    if ($stmt->rowCount() > 0) {
-          $category = $stmt->fetch();
+    if ($stmt->num_rows > 0) {
+          $category = $stmt->fetch_all(MYSQLI_ASSOC);
     }else {
        $category = 0;
     }

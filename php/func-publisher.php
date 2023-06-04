@@ -1,13 +1,13 @@
-<?php  
+<?php 
 
 # Get all Categories function
-function get_all_publishers($con){
+function get_all_publishers($conn){
    $sql  = "SELECT * FROM publisher";
-   $stmt = $con->prepare($sql);
-   $stmt->execute();
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-   	  $publisher = $stmt->fetchAll();
+
+   if ($stmt->num_rows > 0) {
+   	  $publisher = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $publisher = 0;
    }
@@ -17,13 +17,13 @@ function get_all_publishers($con){
 
 
 # Get category by ID
-function get_publisher($con, $id_penerbit){
+function get_publisher($conn, $id_penerbit){
    $sql  = "SELECT * FROM publisher WHERE id_penerbit=?";
-   $stmt = $con->prepare($sql);
-   $stmt->execute([$id_penerbit]);
+   $stmt = mysqli_query($conn, $sql);
 
-   if ($stmt->rowCount() > 0) {
-   	  $publishers = $stmt->fetch();
+
+   if ($stmt->num_rows > 0) {
+   	  $publishers = $stmt->fetch_all(MYSQLI_ASSOC);
    }else {
       $publishers = 0;
    }
