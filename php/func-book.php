@@ -36,8 +36,8 @@ function search_books($conn, $key){
    $key = "%{$key}%";
 
    $sql  = "SELECT * FROM books 
-            WHERE title LIKE ?
-            OR description LIKE ?";
+            WHERE title LIKE '$key'
+            OR description LIKE '$key'";
    $stmt = mysqli_query($conn, $sql);
 
 
